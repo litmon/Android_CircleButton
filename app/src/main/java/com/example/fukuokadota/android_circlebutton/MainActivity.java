@@ -18,14 +18,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         View v = findViewById(R.id.circle);
-
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("custom button", "onClick called");
             }
         });
-
         v.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -35,7 +33,6 @@ public class MainActivity extends ActionBarActivity {
                 return false;
             }
         });
-
     }
 
 

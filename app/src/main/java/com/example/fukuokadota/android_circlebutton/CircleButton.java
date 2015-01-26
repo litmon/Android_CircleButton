@@ -32,20 +32,14 @@ public class CircleButton extends Button {
         float touchX = event.getX(), touchY = event.getY();
         float r = getWidth() / 2;
 
-        Point p = new Point();
-
-        float lenX = (touchX - r) * (touchX - r);
-        float lenY = (touchY - r) * (touchY - r);
+        float lenX = (float)Math.pow(touchX - r, 2);
+        float lenY = (float)Math.pow(touchY - r, 2);
 
         if (lenX + lenY <= r * r) {
             // inside circle
-            Log.d("custom button", "dispatchTouchEvent called: " + true);
-            Log.d("custom button", "dispatchTouchEvent eventType: " + event);
             return super.dispatchTouchEvent(event);
         } else {
             // outside circle
-            Log.d("custom button", "dispatchTouchEvent called: " + false);
-            Log.d("custom button", "dispatchTouchEvent eventType: " + event);
             return false;
         }
     }
