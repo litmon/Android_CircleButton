@@ -47,13 +47,12 @@ public class CircleButton extends Button {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        float touchX = event.getX(), touchY = event.getY();
-        float r = getWidth() / 2;
+        double touchX = event.getX(), touchY = event.getY();
+        double r = getWidth() / 2;
 
-        float lenX = (float) Math.pow(touchX - r, 2);
-        float lenY = (float) Math.pow(touchY - r, 2);
+        double length = Math.hypot(touchX - r, touchY - r);
 
-        if (lenX + lenY <= r * r) {
+        if (length <= r * r) {
             // inside circle
             return super.dispatchTouchEvent(event);
         } else {
