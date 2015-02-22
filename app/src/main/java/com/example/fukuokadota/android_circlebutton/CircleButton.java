@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
 public class CircleButton extends Button {
@@ -14,11 +15,9 @@ public class CircleButton extends Button {
     public CircleButton(Context context) {
         super(context);
     }
-
     public CircleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
     public CircleButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -35,13 +34,12 @@ public class CircleButton extends Button {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         path.reset();
-        path.addCircle(w / 2, h / 2, 100, Path.Direction.CW);
+        path.addCircle(w / 2, h / 2, 10, Path.Direction.CW);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.clipPath(path);
-
         super.onDraw(canvas);
     }
 
