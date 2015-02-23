@@ -8,8 +8,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
-public class CircleButton extends Button {
+public class CircleButton extends ImageView {
     Path path = new Path();
 
     public CircleButton(Context context) {
@@ -33,14 +34,13 @@ public class CircleButton extends Button {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        path.reset();
         path.addCircle(w / 2, h / 2, 10, Path.Direction.CW);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.clipPath(path);
         super.onDraw(canvas);
+        canvas.clipPath(path);
     }
 
     @Override

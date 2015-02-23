@@ -9,11 +9,12 @@
     tools:context=".MainActivity">
 
     <view
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         class="com.example.fukuokadota.android_circlebutton.CircleButton"
         android:id="@+id/circle"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="ぼたああああん" />
+        android:text="ぼたああああん"
+        android:background="#112233" />
 </RelativeLayout>
