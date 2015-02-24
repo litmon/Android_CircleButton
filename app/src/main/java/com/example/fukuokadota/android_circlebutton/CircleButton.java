@@ -27,21 +27,6 @@ public class CircleButton extends ImageView {
     }
 
     @Override
-    public void setBackground(Drawable background) {
-        if(!isInEditMode()) {
-            Bitmap bm = ((BitmapDrawable) background).getBitmap();
-
-            Canvas canvas = new Canvas();
-            canvas.setBitmap(bm);
-            canvas.clipPath(path);
-
-            super.setBackground(new BitmapDrawable(getResources(), bm));
-        }else{
-            super.setBackground(background);
-        }
-    }
-
-    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int size = Math.max(getMeasuredWidth(), getMeasuredHeight());
