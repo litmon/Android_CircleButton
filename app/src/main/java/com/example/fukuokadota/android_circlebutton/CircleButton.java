@@ -1,10 +1,14 @@
 package com.example.fukuokadota.android_circlebutton;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Path;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 public class CircleButton extends ImageView {
@@ -23,9 +27,23 @@ public class CircleButton extends ImageView {
     }
 
     @Override
+    public void setBackground(Drawable background) {
+        if(!isInEditMode()) {
+            Bitmap bm = ((BitmapDrawable) background).getBitmap();
+
+            Canvas canvas = new Canvas();
+            canvas.setBitmap(bm);
+            canvas.clipPath(path);
+
+            super.setBackground(new BitmapDrawable(getResources(), bm));
+        }else{
+            super.setBackground(background);
+        }
+    }
+
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
         int size = Math.max(getMeasuredWidth(), getMeasuredHeight());
         setMeasuredDimension(size, size);
     }
@@ -38,8 +56,8 @@ public class CircleButton extends ImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
         canvas.clipPath(path);
+        super.onDraw(canvas);
     }
 
     @Override
