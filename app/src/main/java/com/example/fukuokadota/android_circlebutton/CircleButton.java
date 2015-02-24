@@ -2,12 +2,9 @@ package com.example.fukuokadota.android_circlebutton;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class CircleButton extends ImageView {
@@ -16,9 +13,11 @@ public class CircleButton extends ImageView {
     public CircleButton(Context context) {
         super(context);
     }
+
     public CircleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public CircleButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
