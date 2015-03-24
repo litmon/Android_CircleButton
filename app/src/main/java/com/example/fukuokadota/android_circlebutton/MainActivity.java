@@ -18,6 +18,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         View v = findViewById(R.id.circle);
+        v.setBackgroundResource(R.drawable.button_apua);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

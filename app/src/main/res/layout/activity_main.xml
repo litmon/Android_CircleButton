@@ -15,6 +15,5 @@
         android:id="@+id/circle"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="ぼたああああん"
-        android:background="#112233" />
+        android:text="ぼたああああん" />
 </RelativeLayout>
